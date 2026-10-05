@@ -1,0 +1,91 @@
+# ============================================================
+# T-box: 大学物理（力学）University Physics — Mechanics
+# ============================================================
+# Oracle sources:
+#   - Halliday, Resnick & Walker, Fundamentals of Physics, 10th ed.
+#   - 马文蔚《物理学》（第七版）上册 力学
+#   - 大学物理课程讲义（SIAS 工科物理）
+#
+# 运行时求解器（scripts/domain_solvers.py::solve_physics）
+# 基于确定性公式模板 + SymPy 数值计算。
+# ============================================================
+
+domain: physics_mechanics
+version: "1.0"
+
+oracle_sources:
+  - type: textbook
+    ref: "Halliday, Resnick & Walker, Fundamentals of Physics, 10th ed."
+    authority: primary
+    distilled_knowledge:
+      - "匀变速直线运动：v = v₀ + at；x = x₀ + v₀t + ½at²；v² = v₀² + 2a(x−x₀)"
+      - "自由落体：a = g = 9.8 m/s²（向下）；v = gt；h = ½gt²"
+      - "牛顿第二定律：F = ma（矢量）"
+      - "圆周运动：向心加速度 a = v²/r；角速度 ω = v/r；T = 2πr/v"
+      - "动量：p = mv；冲量 J = FΔt = Δp"
+  - type: textbook
+    ref: "马文蔚《物理学》第七版 上册"
+    authority: primary
+    distilled_knowledge:
+      - "运动学三公式的适用条件：匀变速直线运动"
+      - "重力加速度 g = 9.8 m/s²，近似 10 m/s²"
+      - "圆周运动向心加速度方向指向圆心"
+  - type: instructor_guide
+    ref: "大学物理课程讲义（质点运动学与牛顿定律）"
+    authority: secondary
+    distilled_knowledge:
+      - "解题四步：选对象 → 受力分析 → 建坐标系 → 列方程"
+      - "单位：m/s²、N = kg·m/s²、rad/s"
+
+concepts:
+  - id: kinematics
+    type: concept
+    name: "匀变速直线运动"
+    formal: "v = v₀ + at；s = v₀t + ½at²"
+    sympy: "formula_templates"
+  - id: free_fall
+    type: concept
+    name: "自由落体"
+    formal: "h = ½gt²，v = gt（g = 9.8 m/s²）"
+    sympy: "formula_templates"
+  - id: newton_second
+    type: concept
+    name: "牛顿第二定律"
+    formal: "F = ma"
+    sympy: "formula_templates"
+  - id: circular_motion
+    type: concept
+    name: "圆周运动"
+    formal: "a = v²/r，ω = v/r"
+    sympy: "formula_templates"
+
+solution_methods:
+  - id: solve_kinematics
+    name: "匀变速运动"
+    trigger: ["匀变速", "初速度", "加速度", "末速度", "位移"]
+    steps:
+      - "识别已知量 v₀/a/t"
+      - "代入 v = v₀ + at、s = v₀t + ½at²"
+  - id: solve_free_fall
+    name: "自由落体"
+    trigger: ["自由落体", "从静止下落", "free fall"]
+    steps:
+      - "g = 9.8 m/s²"
+      - "v = gt，h = ½gt²"
+  - id: solve_newton
+    name: "牛顿第二定律"
+    trigger: ["牛顿第二定律", "F=ma", "force"]
+    steps:
+      - "F = ma"
+      - "单位换算为 N = kg·m/s²"
+  - id: solve_circular
+    name: "圆周运动"
+    trigger: ["圆周", "向心"]
+    steps:
+      - "a = v²/r"
+      - "ω = v/r"
+
+validation_rules:
+  - "结果必须带单位（m/s、m/s²、N、rad/s）"
+  - "加速度为负表示减速"
+  - "g 取 9.8 m/s²（题目另行给出时以其为准）"

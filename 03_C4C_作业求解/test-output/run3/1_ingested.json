@@ -1,0 +1,35 @@
+{
+  "source_file": "real_homework.md",
+  "format": ".md",
+  "raw_text": "# 线性代数与大学物理 作业\n\n> 课程：线性代数与大学物理\n> 学生：LiYaxuan\n> 说明：以下 6 题覆盖极限、线性代数（行列式/方程组/特征值）、微分方程、大学物理力学。\n\n## Problem 1\n\n计算极限 $\\lim_{x \\to 0} \\frac{\\sin x}{x}$。\n\n## Problem 2\n\n计算矩阵 $A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 0 & 1 & 4 \\\\ 5 & 6 & 0 \\end{pmatrix}$ 的行列式 $\\det(A)$。\n\n## Problem 3\n\n解线性方程组：\n$x + y + z = 6$\n$2x - y + z = 3$\n$x + 2y - z = 2$。\n\n## Problem 4\n\n求矩阵 $A = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}$ 的特征值与特征向量。\n\n## Problem 5\n\n求微分方程 $y'' - 5y' + 6y = 0$ 的通解。\n\n## Problem 6\n\n一个物体从静止开始自由落体运动，取 $g = 9.8$ m/s²，求下落 3 秒时的速度与下落距离。\n",
+  "sections": [
+    {
+      "title": "线性代数与大学物理 作业",
+      "content": "> 课程：线性代数与大学物理\n> 学生：LiYaxuan\n> 说明：以下 6 题覆盖极限、线性代数（行列式/方程组/特征值）、微分方程、大学物理力学。"
+    },
+    {
+      "title": "Problem 1",
+      "content": "计算极限 $\\lim_{x \\to 0} \\frac{\\sin x}{x}$。"
+    },
+    {
+      "title": "Problem 2",
+      "content": "计算矩阵 $A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 0 & 1 & 4 \\\\ 5 & 6 & 0 \\end{pmatrix}$ 的行列式 $\\det(A)$。"
+    },
+    {
+      "title": "Problem 3",
+      "content": "解线性方程组：\n$x + y + z = 6$\n$2x - y + z = 3$\n$x + 2y - z = 2$。"
+    },
+    {
+      "title": "Problem 4",
+      "content": "求矩阵 $A = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}$ 的特征值与特征向量。"
+    },
+    {
+      "title": "Problem 5",
+      "content": "求微分方程 $y'' - 5y' + 6y = 0$ 的通解。"
+    },
+    {
+      "title": "Problem 6",
+      "content": "一个物体从静止开始自由落体运动，取 $g = 9.8$ m/s²，求下落 3 秒时的速度与下落距离。"
+    }
+  ]
+}

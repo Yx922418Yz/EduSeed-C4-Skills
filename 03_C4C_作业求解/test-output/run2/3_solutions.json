@@ -1,0 +1,79 @@
+[
+  {
+    "problem_id": "1",
+    "problem_text": "计算极限 $\\lim_{x \\to 0} \\frac{\\sin x}{x}$。",
+    "solved": true,
+    "steps": [
+      "$\\lim_{x \\to 0} \\frac{\\sin{\\left(x \\right)}}{x} = 1$"
+    ],
+    "answer": "1",
+    "answer_latex": "1",
+    "solver": "sympy",
+    "sub_solutions": []
+  },
+  {
+    "problem_id": "2",
+    "problem_text": "计算矩阵 $A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 0 & 1 & 4 \\\\ 5 & 6 & 0 \\end{pmatrix}$ 的行列式 $\\det(A)$。",
+    "solved": true,
+    "steps": [
+      "对矩阵 A 求行列式（3×3）",
+      "按行展开/直接调用 det：1"
+    ],
+    "answer": "1",
+    "answer_latex": "1",
+    "solver": "sympy",
+    "sub_solutions": []
+  },
+  {
+    "problem_id": "3",
+    "problem_text": "解线性方程组：\n$x + y + z = 6$\n$2x - y + z = 3$\n$x + 2y - z = 2$。",
+    "solved": false,
+    "steps": [],
+    "answer": null,
+    "answer_latex": "",
+    "reason": "概念题需要 LLM 求解器（学生扩展点）。",
+    "solver": "none",
+    "sub_solutions": []
+  },
+  {
+    "problem_id": "4",
+    "problem_text": "求矩阵 $A = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}$ 的特征值与特征向量。",
+    "solved": true,
+    "steps": [
+      "求特征多项式 |λI − A| = 0，解特征值",
+      "特征值 1（代数重数 1），特征向量 \\left[\\begin{matrix}-1\\\\1\\end{matrix}\\right]；特征值 3（代数重数 1），特征向量 \\left[\\begin{matrix}1\\\\1\\end{matrix}\\right]"
+    ],
+    "answer": "特征值 1（代数重数 1），特征向量 \\left[\\begin{matrix}-1\\\\1\\end{matrix}\\right]; 特征值 3（代数重数 1），特征向量 \\left[\\begin{matrix}1\\\\1\\end{matrix}\\right]",
+    "answer_latex": "特征值 1（代数重数 1），特征向量 \\left[\\begin{matrix}-1\\\\1\\end{matrix}\\right]; 特征值 3（代数重数 1），特征向量 \\left[\\begin{matrix}1\\\\1\\end{matrix}\\right]",
+    "solver": "sympy",
+    "sub_solutions": []
+  },
+  {
+    "problem_id": "5",
+    "problem_text": "求微分方程 $y'' - 5y' + 6y = 0$ 的通解。",
+    "solved": true,
+    "steps": [
+      "识别为 2 阶常微分方程：6 y{\\left(x \\right)} - 5 \\frac{d}{d x} y{\\left(x \\right)} + \\frac{d^{2}}{d x^{2}} y{\\left(x \\right)} = 0",
+      "使用 dsolve 求通解",
+      "通解：y{\\left(x \\right)} = \\left(C_{1} + C_{2} e^{x}\\right) e^{2 x}"
+    ],
+    "answer": "Eq(y(x), (C1 + C2*exp(x))*exp(2*x))",
+    "answer_latex": "y{\\left(x \\right)} = \\left(C_{1} + C_{2} e^{x}\\right) e^{2 x}",
+    "solver": "sympy",
+    "sub_solutions": []
+  },
+  {
+    "problem_id": "6",
+    "problem_text": "一个物体从静止开始自由落体运动，取 $g = 9.8$ m/s²，求下落 3 秒时的速度与下落距离。",
+    "solved": true,
+    "steps": [
+      "自由落体：v = gt，s = ½gt²（g = 9.8 m/s²）",
+      "t = 9.8 s 时：v = 9.8×9.8 = 96.04000000000002 m/s",
+      "s = ½×9.8×9.8² = 470.5960000000001 m"
+    ],
+    "answer": "v = 96.04000000000002 m/s，s = 470.5960000000001 m",
+    "answer_latex": "v = 96.04000000000002 m/s，s = 470.5960000000001 m",
+    "solver": "sympy",
+    "sub_solutions": []
+  }
+]

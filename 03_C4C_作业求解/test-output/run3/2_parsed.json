@@ -1,0 +1,86 @@
+[
+  {
+    "id": "1",
+    "text": "计算极限 $\\lim_{x \\to 0} \\frac{\\sin x}{x}$。",
+    "math_expressions": [
+      {
+        "type": "inline",
+        "latex": "\\lim_{x \\to 0} \\frac{\\sin x}{x}"
+      }
+    ],
+    "type": "limit",
+    "sub_problems": []
+  },
+  {
+    "id": "2",
+    "text": "计算矩阵 $A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 0 & 1 & 4 \\\\ 5 & 6 & 0 \\end{pmatrix}$ 的行列式 $\\det(A)$。",
+    "math_expressions": [
+      {
+        "type": "inline",
+        "latex": "A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 0 & 1 & 4 \\\\ 5 & 6 & 0 \\end{pmatrix}"
+      },
+      {
+        "type": "inline",
+        "latex": "\\det(A)"
+      }
+    ],
+    "type": "matrix",
+    "sub_problems": []
+  },
+  {
+    "id": "3",
+    "text": "解线性方程组：\n$x + y + z = 6$\n$2x - y + z = 3$\n$x + 2y - z = 2$。",
+    "math_expressions": [
+      {
+        "type": "inline",
+        "latex": "x + y + z = 6"
+      },
+      {
+        "type": "inline",
+        "latex": "2x - y + z = 3"
+      },
+      {
+        "type": "inline",
+        "latex": "x + 2y - z = 2"
+      }
+    ],
+    "type": "matrix",
+    "sub_problems": []
+  },
+  {
+    "id": "4",
+    "text": "求矩阵 $A = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}$ 的特征值与特征向量。",
+    "math_expressions": [
+      {
+        "type": "inline",
+        "latex": "A = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}"
+      }
+    ],
+    "type": "matrix",
+    "sub_problems": []
+  },
+  {
+    "id": "5",
+    "text": "求微分方程 $y'' - 5y' + 6y = 0$ 的通解。",
+    "math_expressions": [
+      {
+        "type": "inline",
+        "latex": "y'' - 5y' + 6y = 0"
+      }
+    ],
+    "type": "ode",
+    "sub_problems": []
+  },
+  {
+    "id": "6",
+    "text": "一个物体从静止开始自由落体运动，取 $g = 9.8$ m/s²，求下落 3 秒时的速度与下落距离。",
+    "math_expressions": [
+      {
+        "type": "inline",
+        "latex": "g = 9.8"
+      }
+    ],
+    "type": "physics",
+    "sub_problems": []
+  }
+]

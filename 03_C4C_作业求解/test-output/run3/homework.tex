@@ -1,0 +1,144 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\geometry{margin=1in}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{线性代数与大学物理}
+\lhead{LiYaxuan}
+\rfoot{Page \thepage}
+
+\newcommand{\problem}[1]{\subsection*{Problem #1}}
+\newcommand{\solution}{\paragraph{Solution.}}
+
+\definecolor{solutioncolor}{RGB}{0, 100, 0}
+
+\begin{document}
+
+\begin{center}
+    {\LARGE\bfseries 作业解答} \\[0.5em]
+    {\large 线性代数与大学物理} \\[0.3em]
+    LiYaxuan \quad | \quad 2026-10-05
+\end{center}
+
+\hrule
+\vspace{1em}
+\problem{1}
+
+计算极限 $\lim_{x \to 0} \frac{\sin x}{x}$。
+
+\solution
+
+$\lim_{x \to 0} \frac{\sin{\left(x \right)}}{x} = 1$
+
+\textbf{Answer:}
+\[\boxed{1}\]
+
+\vspace{1em}
+\hrule
+\vspace{1em}
+
+\problem{2}
+
+计算矩阵 $A = \begin{pmatrix} 1 & 2 & 3 \\ 0 & 1 & 4 \\ 5 & 6 & 0 \end{pmatrix}$ 的行列式 $\det(A)$。
+
+\solution
+
+对矩阵 A 求行列式（3×3）
+
+按行展开/直接调用 det：1
+
+\textbf{Answer:}
+\[\boxed{1}\]
+
+\vspace{1em}
+\hrule
+\vspace{1em}
+
+\problem{3}
+
+解线性方程组：
+$x + y + z = 6$
+$2x - y + z = 3$
+$x + 2y - z = 2$。
+
+\solution
+
+列出方程组（3 个方程），用 linsolve 求解
+
+解集为 \left\{\left( 1, \  2, \  3\right)\right\}
+
+\textbf{Answer:}
+\[\boxed{\left\{\left( 1, \  2, \  3\right)\right\}}\]
+
+\vspace{1em}
+\hrule
+\vspace{1em}
+
+\problem{4}
+
+求矩阵 $A = \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}$ 的特征值与特征向量。
+
+\solution
+
+求特征多项式 |λI − A| = 0，解特征值
+
+特征值 1（代数重数 1），特征向量 \left[\begin{matrix}-1\\1\end{matrix}\right]；特征值 3（代数重数 1），特征向量 \left[\begin{matrix}1\\1\end{matrix}\right]
+
+\textbf{Answer:}
+\[\boxed{特征值 1（代数重数 1），特征向量 \left[\begin{matrix}-1\\1\end{matrix}\right]; 特征值 3（代数重数 1），特征向量 \left[\begin{matrix}1\\1\end{matrix}\right]}\]
+
+\vspace{1em}
+\hrule
+\vspace{1em}
+
+\problem{5}
+
+求微分方程 $y'' - 5y' + 6y = 0$ 的通解。
+
+\solution
+
+识别为 2 阶常微分方程：6 y{\left(x \right)} - 5 \frac{d}{d x} y{\left(x \right)} + \frac{d^{2}}{d x^{2}} y{\left(x \right)} = 0
+
+使用 dsolve 求通解
+
+通解：y{\left(x \right)} = \left(C\_{1} + C\_{2} e^{x}\right) e^{2 x}
+
+\textbf{Answer:}
+\[\boxed{y{\left(x \right)} = \left(C_{1} + C_{2} e^{x}\right) e^{2 x}}\]
+
+\vspace{1em}
+\hrule
+\vspace{1em}
+
+\problem{6}
+
+一个物体从静止开始自由落体运动，取 $g = 9.8$ m/s²，求下落 3 秒时的速度与下落距离。
+
+\solution
+
+自由落体：v = gt，s = ½gt²（g = 9.8 m/s²）
+
+t = 3.0 s 时：v = 9.8×3.0 = 29.400000000000002 m/s
+
+s = ½×9.8×3.0² = 44.1 m
+
+\textbf{Answer:}
+\[\boxed{v = 29.400000000000002 m/s，s = 44.1 m}\]
+
+\vspace{1em}
+\hrule
+\vspace{1em}
+
+
+\vspace{2em}
+\noindent\textit{Auto-generated: 6/6 problems solved by SymPy.}
+\end{document}

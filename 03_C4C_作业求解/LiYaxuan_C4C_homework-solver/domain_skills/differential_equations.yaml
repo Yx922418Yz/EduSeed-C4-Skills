@@ -1,0 +1,80 @@
+# ============================================================
+# T-box: 微分方程（Differential Equations）
+# ============================================================
+# Oracle sources:
+#   - Boyce & DiPrima, Elementary Differential Equations, 10th ed.
+#   - 同济大学《高等数学》（下册）微分方程章节
+#   - 大学课程讲义（常微分方程章节）
+#
+# 运行时求解器（scripts/domain_solvers.py::solve_ode_ext）基于 SymPy dsolve。
+# ============================================================
+
+domain: differential_equations
+version: "1.0"
+
+oracle_sources:
+  - type: textbook
+    ref: "Boyce & DiPrima, Elementary Differential Equations, 10th ed."
+    authority: primary
+    distilled_knowledge:
+      - "一阶可分离：dy/dx = g(x)h(y) → ∫dy/h(y) = ∫g(x)dx"
+      - "一阶线性：y' + p(x)y = q(x)，积分因子 μ = e^{∫p dx}"
+      - "二阶常系数齐次：特征方程 r² + pr + q = 0，三情形（相异实根/重根/共轭复根）"
+      - "非齐次：特解 + 齐次通解（待定系数法/常数变易法）"
+  - type: textbook
+    ref: "同济大学《高等数学》下册 微分方程"
+    authority: primary
+    distilled_knowledge:
+      - "可分离变量方程的标准解法"
+      - "一阶线性微分方程公式 y = e^{-∫p dx}(∫q e^{∫p dx}dx + C)"
+      - "二阶常系数非齐次 y'' + ay' + by = f(x) 的特解形式表"
+  - type: instructor_guide
+    ref: "微分方程课程讲义（建模应用：弹簧-质量、RC 电路）"
+    authority: secondary
+    distilled_knowledge:
+      - "初值问题：通解 + 初始条件定常数"
+      - "通解含任意常数 C；特解满足初值"
+
+concepts:
+  - id: ode
+    type: concept
+    name: "常微分方程"
+    formal: "F(x, y, y', ..., y^(n)) = 0"
+    sympy: "dsolve"
+  - id: separable
+    type: concept
+    name: "可分离变量方程"
+    formal: "dy/dx = g(x)h(y)"
+    sympy: "dsolve"
+  - id: first_order_linear
+    type: concept
+    name: "一阶线性微分方程"
+    formal: "y' + p(x)y = q(x)"
+    sympy: "dsolve"
+    requires: [ode]
+  - id: second_order_constant
+    type: concept
+    name: "二阶常系数线性方程"
+    formal: "y'' + ay' + by = f(x)"
+    sympy: "dsolve"
+    requires: [ode]
+
+solution_methods:
+  - id: solve_first_order
+    name: "一阶微分方程"
+    trigger: ["y'", "dy/dx", "一阶"]
+    steps:
+      - "识别可分离或一阶线性"
+      - "dsolve 求通解"
+  - id: solve_second_order
+    name: "二阶常系数"
+    trigger: ["y''", "二阶"]
+    steps:
+      - "特征方程 r² + pr + q = 0"
+      - "按判别式分类写通解"
+      - "非齐次加特解"
+
+validation_rules:
+  - "通解必须含任意常数 C（除非初值条件给定）"
+  - "可回代验证：把解代入原方程两边相等"
+  - "二阶方程两个独立解"
