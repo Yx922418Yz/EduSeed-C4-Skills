@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "SIAS University",
+    "name_zh": "郑州西亚斯学院（主校区）",
+    "latitude": 34.401422,
+    "longitude": 113.765004,
+    "description": "这里是校园生活的热点，是学习和交流的理想之地。",
+    "verified": true,
+    "source": "高德地图 POI（2026-10 查询）"
+  },
+  {
+    "id": 2,
+    "name": "Hometown of Huangdi (Yellow Emperor)",
+    "name_zh": "黄帝故里",
+    "latitude": 34.400213,
+    "longitude": 113.727051,
+    "description": "探访中华文明的源头，感受历史的厚重与辉煌。",
+    "verified": true,
+    "source": "高德地图 POI（2026-10 查询）"
+  },
+  {
+    "id": 3,
+    "name": "Xinzheng City Center",
+    "name_zh": "新郑市城区",
+    "latitude": 34.395562,
+    "longitude": 113.740529,
+    "description": "作为当地的商业中心，可以体验新郑市的日常生活和商业氛围。",
+    "verified": true,
+    "source": "Bigemap 卫星地图（2026-10 查询）"
+  },
+  {
+    "id": 4,
+    "name": "Xinzheng Railway Station",
+    "name_zh": "新郑站（火车站）",
+    "latitude": 34.382115,
+    "longitude": 113.775311,
+    "description": "重要的交通枢纽，是往返新郑及周边地区的便捷起点。",
+    "verified": true,
+    "source": "高德地图 POI（2026-10 查询）"
+  },
+  {
+    "id": 5,
+    "name": "Henan Museum",
+    "name_zh": "河南博物院",
+    "latitude": 34.788263,
+    "longitude": 113.672097,
+    "description": "收藏了大量珍贵的历史文物，是了解中华文化的重要窗口。",
+    "verified": true,
+    "source": "高德地图 POI / POILIST（2026-10 查询）"
+  },
+  {
+    "id": 6,
+    "name": "Erqi Memorial Tower",
+    "name_zh": "郑州二七纪念馆（二七塔）",
+    "latitude": 34.752186,
+    "longitude": 113.666494,
+    "description": "这座纪念馆是郑州历史的见证者，承载着这座城市的精神记忆。",
+    "verified": true,
+    "source": "高德地图 POI（2026-10 查询）"
+  },
+  {
+    "id": 7,
+    "name": "Zhengzhou University",
+    "name_zh": "郑州大学（主校区）",
+    "latitude": 34.817077,
+    "longitude": 113.53591,
+    "description": "作为区域内知名的学府，这里充满了求知若渴的学术气息。",
+    "verified": true,
+    "source": "高德地图 POI（2026-10 查询）"
+  },
+  {
+    "id": 8,
+    "name": "Zhengzhou Xinzheng International Airport",
+    "name_zh": "郑州新郑国际机场",
+    "latitude": 34.528476,
+    "longitude": 113.856808,
+    "description": "现代化的交通枢纽，是连接郑州与世界的重要门户。",
+    "verified": true,
+    "source": "高德地图 POI / 河南省机场集团（2026-10 查询）"
+  }
+]

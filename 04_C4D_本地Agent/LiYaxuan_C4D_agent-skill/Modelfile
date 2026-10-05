@@ -1,0 +1,19 @@
+# Modelfile：从 ModelScope/hf-mirror 下载的 unsloth GGUF 导入为 Ollama 模型
+# 模型：Gemma 4 E4B（Q5_K_M 量化，约 5.1GB 文件 / 5.5GB 磁盘）
+# 导入命令（FROM 必须写 GGUF 在本机的绝对路径，否则报"neither from or files"）：
+#   ollama create e4b-local -f Modelfile
+FROM /你的下载目录/gemma-4-E4B-it-Q5_K_M.gguf
+
+# 显式声明能力（Gemma 4 原生支持函数调用与结构化输出）
+PARAMETER temperature 0.6
+PARAMETER num_ctx 4096
+
+TEMPLATE """{{- if .System }}<start_of_turn>system
+{{ .System }}<end_of_turn>
+{{- end }}
+<start_of_turn>user
+{{ .Prompt }}<end_of_turn>
+<start_of_turn>model
+"""
+
+SYSTEM """You are a helpful assistant running locally on the user's computer."""
