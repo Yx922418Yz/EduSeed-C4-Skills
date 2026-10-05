@@ -1,0 +1,15 @@
+# 本地模型文件（5.5GB，不入库；复现见 C4D 教学说明）
+04_C4D_本地Agent/LiYaxuan_C4D_agent-skill/models/
+
+# Ollama 调试日志
+*.log
+*.err
+
+# Python 缓存
+__pycache__/
+*.pyc
+
+# 临时文件
+*.tmp
+.DS_Store
+Thumbs.db
