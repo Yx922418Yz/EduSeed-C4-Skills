@@ -18,6 +18,7 @@
 所有交付文件统一采用 `LiYaxuan_C4X_<描述>.<扩展名>` 命名，每个挑战文件夹内
 同时包含可执行技能源码目录与 `.skill` 打包产物，以及五件套交付文档
 （方案设计 / 教学说明 / AI日志 / 拿来说明 / 验证证据）。
+C4D 按平台规范使用 `LiYaxuan_C4D_Agent技能(.skill)` / `LiYaxuan_C4D_AAR七维复盘.md` / `LiYaxuan_C4D_demo_证据页.html` 命名。
 
 ## 使用方式
 
