@@ -70,6 +70,22 @@ hf-mirror 直连 + Modelfile 本地导入是可靠备选。
 - 改用 Chrome headless 渲染地图截图 + nvidia-smi/ollama ps 文本证据（GPU 5586MiB、
   llama-server 进程、模型 100% GPU 加载），证据强度等价且更精确。
 
+### [完成] 2026-10-06 — 记忆机制增强（对照 rubric"Agent 有记忆"信号）
+
+**21:20 评审对照发现缺口**
+- C4D rubric 的 agentCapability 维度有"有记忆"信号；初版 Agent 只有会话内坐标快照，
+  未显式实现"记忆"概念；
+- 增强设计：阶段一函数调用收集的坐标 → 持久化 `output/sias_memory.json`
+  （memory_type=coordinate_snapshot，含来源/时间/条数）；阶段二汇总输出时
+  明确"从记忆中读取坐标快照"；verify_output.py 增加记忆四项校验。
+
+**21:28 增强后复验**
+- 重跑 Agent：**模式=function_calling，工具调用 10 次，8 地点全部已验证**；
+- 记忆文件写入 8 条坐标，阶段二复用 ✅；verify_output 全部通过（含记忆校验 4 项）；
+- 说明：本次模型挑选的地点与首轮略有不同（"郑州站"替代"郑州二七纪念馆"），
+  说明 4B 模型每次生成会有合理变化——正因为有坐标核对环节，任何一次输出都可靠。
+- 地图重绘 + 截图更新，验证报告同步刷新。
+
 ## 三、反思
 
 1. **本地模型的下载渠道是第一坑**：官方 Ollama 仓库可能损坏且慢（89KB/s），
