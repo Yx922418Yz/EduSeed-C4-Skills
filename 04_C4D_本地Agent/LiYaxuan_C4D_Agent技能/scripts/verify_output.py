@@ -48,6 +48,15 @@ def main():
           f"工具调用次数 {trace.get('tool_calls_seen', 'N/A')}）")
     check(trace.get("final_json") is not None, "final_json 已记录")
 
+    # Agent 记忆校验：sias_memory.json 存在且包含阶段一坐标快照
+    mem_path = OUT / "sias_memory.json"
+    check(mem_path.exists(), "Agent 记忆文件 sias_memory.json 存在")
+    if mem_path.exists():
+        mem = json.loads(mem_path.read_text(encoding="utf-8"))
+        check(mem.get("memory_type") == "coordinate_snapshot", "记忆类型为坐标快照")
+        check(mem.get("place_count", 0) >= 8, f"记忆含 {mem.get('place_count', 0)} 条坐标（≥8）")
+        check(trace.get("memory", {}).get("reused_in_phase2") is True, "阶段二复用了记忆")
+
     print("=" * 40)
     if failures:
         print(f"校验失败 {len(failures)} 项")
