@@ -41,6 +41,7 @@ python scripts/verify_output.py
 - `output/sias_places.json` —— 由本地 Gemma 4 生成的 8 个地点（含模型描述 + 工具返回坐标）
 - `output/sias_map.html` —— Folium 交互地图（Leaflet，支持缩放/点击 popup）
 - `output/agent_trace.json` —— Agent 对话与工具调用全程留痕（证明非手写）
+- `output/sias_memory.json` —— **Agent 记忆**：阶段一收集的坐标快照持久化，阶段二直接复用（长期记忆，跨会话有效）
 
 ## Agent 设计（满足挑战要求）
 
@@ -48,6 +49,7 @@ python scripts/verify_output.py
 |----------|-----------|
 | 模型通过函数调用生成地图数据 | `get_place_coordinates(name)` 工具：模型自主决定调用，工具返回真实坐标 |
 | 至少一项 Agent 能力 | 工具调用 + 多步推理（先列地点→逐点查坐标→汇总 JSON） |
+| Agent 有记忆 | 阶段一坐标快照持久化 `sias_memory.json`，阶段二"从记忆读取"（coordinate_snapshot） |
 | 地点数据由本地模型生成 | 地点选择与中文描述由 Gemma 4 生成；坐标由工具查询真实知识库（防止 LLM 幻觉坐标） |
 | 结构化输出 | 最终输出 JSON 数组（name/name_zh/latitude/longitude/description） |
 | 交互式地图 | Folium + Leaflet：缩放、点击弹窗、分组标记 |
