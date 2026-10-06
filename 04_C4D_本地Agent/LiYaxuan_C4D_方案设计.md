@@ -38,7 +38,9 @@
         │ ② 坐标回填给模型
         ▼
 本地模型汇总 → ③ 结构化输出 JSON 数组（name/name_zh/lat/lng/description）
-        │
+        │        ▲
+        │        └── ②' Agent 记忆：坐标快照写入 sias_memory.json，
+        │              阶段二从记忆读取（长期记忆，跨会话复用）
         ▼
 ┌─────────────────────────────────────────────┐
 │ build_map.py → Folium 交互地图 sias_map.html  │  ← Leaflet：缩放/点击弹窗
@@ -55,6 +57,7 @@
 | 函数调用（function calling） | 工具 `get_place_coordinates(name)`；模型自主决定调用 | agent_trace.json 中的 tool_calls 轮次 |
 | 多步推理 | 先挑选地点 → 逐点查坐标 → 汇总 JSON | 对话轨迹轮次 |
 | 结构化输出 | 最终只输出 JSON 数组（严格字段） | sias_places.json |
+| 记忆（长期记忆） | 阶段一坐标快照持久化 `sias_memory.json`，阶段二"从记忆读取"，跨会话复用 | sias_memory.json + verify 记忆校验 |
 | 地点数据由本地模型生成 | 地点选择 + 中文描述由 Gemma 4 生成 | trace 中的 model 输出 |
 | 坐标准确性 | 坐标来自工具查询的真实 POI 知识库（**防止 LLM 幻觉坐标**——地图坐标必须可验证） | places_kb.json 每点带来源 |
 
