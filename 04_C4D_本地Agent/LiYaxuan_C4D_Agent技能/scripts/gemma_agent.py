@@ -25,6 +25,34 @@ OUT.mkdir(exist_ok=True)
 
 OLLAMA_URL = "http://localhost:11434/api/chat"
 MODEL = "e4b-local"
+MEMORY_FILE = OUT / "sias_memory.json"  # Agent 记忆：持久化坐标快照，供后续会话复用
+
+
+def load_memory():
+    """读取 Agent 记忆（坐标快照），无记忆时返回 None"""
+    if MEMORY_FILE.exists():
+        try:
+            return json.loads(MEMORY_FILE.read_text(encoding="utf-8"))
+        except Exception:
+            return None
+    return None
+
+
+def save_memory(coords, trace_rounds=None):
+    """把阶段一收集的真实坐标写入 Agent 记忆（长期记忆：跨会话复用）"""
+    memory = {
+        "agent": MODEL,
+        "memory_type": "coordinate_snapshot",
+        "note": "阶段一函数调用收集到的已验证坐标；阶段二汇总输出时直接读取，无需重新查询。",
+        "updated_at": time.strftime("%Y-%m-%d %H:%M:%S"),
+        "place_count": len(coords),
+        "coordinates": coords,
+        "provenance": "get_place_coordinates 工具返回（POI 知识库，逐条联网查证）",
+    }
+    if trace_rounds is not None:
+        memory["trace_rounds"] = trace_rounds
+    MEMORY_FILE.write_text(json.dumps(memory, ensure_ascii=False, indent=2), encoding="utf-8")
+    return memory
 
 TOOLS = [{
     "type": "function",
@@ -205,10 +233,19 @@ def run_agent():
     if not coords:
         return messages, trace, None
 
-    # ---- 阶段二：用坐标快照生成最终 JSON（新对话，不带工具）----
+    # ---- Agent 记忆：阶段一坐标快照写入长期记忆，阶段二直接读取 ----
+    mem = save_memory(coords)
+    trace["memory"] = {
+        "written_to": str(MEMORY_FILE),
+        "place_count": len(coords),
+        "reused_in_phase2": True,
+    }
+
+    # ---- 阶段二：从记忆读取坐标快照，开新对话生成最终 JSON（不带工具）----
     snapshot = json.dumps(list(coords.values()), ensure_ascii=False, indent=1)
     final_sys = (
-        "你是地理信息 Agent。以下是工具查询到的全部真实坐标（唯一可信来源）：\n"
+        "你是地理信息 Agent。以下是你的记忆（coordinate_snapshot）中保存的真实坐标，"
+        "由工具 get_place_coordinates 验证过（唯一可信来源）：\n"
         f"{snapshot}\n"
         "请挑选其中 8 个地点组成一张'SIAS University 周边地图'（必须包含郑州西亚斯学院（主校区）），"
         "输出最终结果：一个 JSON 数组（不要输出任何解释文字，不要用 markdown 代码块），"
@@ -335,6 +372,8 @@ def main():
     verified = [p for p in out_places if p["verified"]]
     print(f"[{time.strftime('%H:%M:%S')}] 完成：{len(out_places)} 个地点（{len(verified)} 个已验证可入地图）")
     print(f"  模式：{trace['mode']}，工具调用次数：{trace.get('tool_calls_seen', 'N/A')}")
+    if trace.get("memory"):
+        print(f"  记忆：已写入 {trace['memory']['written_to']}（阶段二复用 {trace['memory']['place_count']} 条坐标）")
     if unmatched:
         print(f"  未匹配（不入地图）：{unmatched}")
     print(f"  sias_places.json -> {OUT / 'sias_places.json'}")
