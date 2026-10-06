@@ -48,9 +48,9 @@ ollama run e4b-local "用一句话介绍你自己"
 
 ```powershell
 pip install folium
-python scripts/gemma_agent.py    # Agent：函数调用 + 结构化输出 → sias_places.json
+python scripts/gemma_agent.py    # Agent：函数调用 + 结构化输出 → sias_places.json + 记忆 sias_memory.json
 python scripts/build_map.py      # Folium → sias_map.html
-python scripts/verify_output.py  # 校验
+python scripts/verify_output.py  # 校验（含记忆校验）
 ```
 
 浏览器打开 `output/sias_map.html`：可以缩放、点击每个标记看详情。
