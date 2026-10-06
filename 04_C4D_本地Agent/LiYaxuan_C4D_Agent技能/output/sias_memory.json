@@ -1,0 +1,74 @@
+{
+  "agent": "e4b-local",
+  "memory_type": "coordinate_snapshot",
+  "note": "阶段一函数调用收集到的已验证坐标；阶段二汇总输出时直接读取，无需重新查询。",
+  "updated_at": "2026-10-06 21:29:09",
+  "place_count": 8,
+  "coordinates": {
+    "郑州西亚斯学院（主校区）": {
+      "name": "SIAS University",
+      "name_zh": "郑州西亚斯学院（主校区）",
+      "latitude": 34.401422,
+      "longitude": 113.765004,
+      "address": "人民路168号",
+      "source": "高德地图 POI（2026-10 查询）"
+    },
+    "郑州新郑国际机场": {
+      "name": "Zhengzhou Xinzheng International Airport",
+      "name_zh": "郑州新郑国际机场",
+      "latitude": 34.528476,
+      "longitude": 113.856808,
+      "address": "航空港区迎宾大道1号",
+      "source": "高德地图 POI / 河南省机场集团（2026-10 查询）"
+    },
+    "新郑站（火车站）": {
+      "name": "Xinzheng Railway Station",
+      "name_zh": "新郑站（火车站）",
+      "latitude": 34.382115,
+      "longitude": 113.775311,
+      "address": "新烟街道烟厂街16号",
+      "source": "高德地图 POI（2026-10 查询）"
+    },
+    "新郑市城区": {
+      "name": "Xinzheng City Center",
+      "name_zh": "新郑市城区",
+      "latitude": 34.395562,
+      "longitude": 113.740529,
+      "address": "新郑市",
+      "source": "Bigemap 卫星地图（2026-10 查询）"
+    },
+    "黄帝故里": {
+      "name": "Hometown of Huangdi (Yellow Emperor)",
+      "name_zh": "黄帝故里",
+      "latitude": 34.400213,
+      "longitude": 113.727051,
+      "address": "轩辕路1号",
+      "source": "高德地图 POI（2026-10 查询）"
+    },
+    "郑州大学（主校区）": {
+      "name": "Zhengzhou University",
+      "name_zh": "郑州大学（主校区）",
+      "latitude": 34.817077,
+      "longitude": 113.53591,
+      "address": "科学大道100号",
+      "source": "高德地图 POI（2026-10 查询）"
+    },
+    "河南博物院": {
+      "name": "Henan Museum",
+      "name_zh": "河南博物院",
+      "latitude": 34.788263,
+      "longitude": 113.672097,
+      "address": "农业路8号",
+      "source": "高德地图 POI / POILIST（2026-10 查询）"
+    },
+    "郑州站（火车站）": {
+      "name": "Zhengzhou Railway Station",
+      "name_zh": "郑州站（火车站）",
+      "latitude": 34.74725,
+      "longitude": 113.66,
+      "address": "郑州市二七区",
+      "source": "地球在线卫星地图（2026-10 查询）"
+    }
+  },
+  "provenance": "get_place_coordinates 工具返回（POI 知识库，逐条联网查证）"
+}
