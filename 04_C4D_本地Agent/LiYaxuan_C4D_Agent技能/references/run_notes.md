@@ -25,10 +25,17 @@
 
 1. `ollama serve`（或 Ollama 系统服务）
 2. `ollama create e4b-local -f Modelfile`（首次）
-3. `python scripts/gemma_agent.py` → 生成 `output/sias_places.json` + `output/agent_trace.json`
+3. `python scripts/gemma_agent.py` → 生成 `output/sias_places.json` + `output/agent_trace.json` + `output/sias_memory.json`（Agent 记忆）
 4. `python scripts/build_map.py` → 生成 `output/sias_map.html`（高德底图）
-5. `python scripts/verify_output.py` → 输出校验结论
+5. `python scripts/verify_output.py` → 输出校验结论（含记忆校验）
 6. 浏览器打开 `output/sias_map.html`，截图存档
+
+## 记忆机制（Agent 能力）
+
+- 阶段一：模型调用 `get_place_coordinates` 收集真实坐标；
+- 记忆写入：坐标快照持久化 `output/sias_memory.json`（memory_type=coordinate_snapshot）；
+- 阶段二：汇总输出时直接从记忆读取坐标，无需重复查询（长期记忆，跨会话有效）；
+- 记忆校验：`verify_output.py` 检查记忆文件存在、类型、条数、阶段二复用标记。
 
 ## 预期时间
 
